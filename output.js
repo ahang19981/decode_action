@@ -1,7 +1,10 @@
+//Mon Nov 18 2024 06:13:34 GMT+0000 (Coordinated Universal Time)
+//Base:https://github.com/echo094/decode-js
+//Modify:https://github.com/smallfawn/decode_action
 //Mon Nov 18 2024 06:10:18 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
-const $ = new Env("小蚕霸王餐");
+const $ = new Env("\u5C0F\u8695\u9738\u738B\u9910");
 const notify = $.isNode() ? require("./sendNotify") : "";
 (() => {
   var b = {
@@ -3525,8 +3528,15 @@ const notify = $.isNode() ? require("./sendNotify") : "";
       });
     };
   }
-  var D = "xcbwc_data",
-    E = $.toObj($.isNode() ? process.env[D] : $.getdata(D)) || [];
+  //   var D = "xcbwc_data",
+  //     E = $.toObj($.isNode() ? process.env[D] : $.getdata(D)) || [];
+  var E = [{
+    "userId": "427622",
+    "teemo": "272576024",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjQyNzYyMiwiZXhwIjoxNzM1MTA2NTk3fQ.aqNvDcZIztE1sPIZDPAkQcxkIWTUjUWeqNbIYI0nhYg",
+    "userName": "\u963F\u822A"
+  }];
+  console.log(E, "===eeeee");
   function F() {
     return G.apply(this, arguments);
   }
@@ -3554,8 +3564,8 @@ const notify = $.isNode() ? require("./sendNotify") : "";
                 ah.next = 89;
                 break;
               }
-              $.log("\n-------------账号".concat(a0.index, "-------------\n"));
-              $.log("[INFO] 「".concat(a1.nickname, "」登录成功！"));
+              $.log("\n-------------\u8D26\u53F7".concat(a0.index, "-------------\n"));
+              $.log("[INFO] \u300C".concat(a1.nickname, "\u300D\u767B\u5F55\u6210\u529F\uFF01"));
               ah.next = 14;
               return a0.InviteWord();
             case 14:
@@ -3578,7 +3588,7 @@ const notify = $.isNode() ? require("./sendNotify") : "";
                 break;
               }
               a5 = a4.value;
-              $.log("[INFO] 领取".concat(a5.name, "任务..."));
+              $.log("[INFO] \u9886\u53D6".concat(a5.name, "\u4EFB\u52A1..."));
               ah.next = 28;
               return a0.CreateUserPromotion(a5.id);
             case 28:
@@ -3679,12 +3689,12 @@ const notify = $.isNode() ? require("./sendNotify") : "";
               return a0.GetCard();
             case 84:
               af = ah.sent;
-              $.notifyMsg.push("[".concat(a1.nickname, "] 积分:").concat(ae, " 红包:").concat(ad, " 饭票:").concat(af));
+              $.notifyMsg.push("[".concat(a1.nickname, "] \u79EF\u5206:").concat(ae, " \u7EA2\u5305:").concat(ad, " \u996D\u7968:").concat(af));
               $.succCount++;
               ah.next = 90;
               break;
             case 89:
-              P("⛔️ 「".concat(null !== (ag = a0.userName) && void 0 !== ag ? ag : "账号".concat(index), "」签到失败, 用户需要去登录"));
+              P("\u26D4\uFE0F \u300C".concat(null !== (ag = a0.userName) && void 0 !== ag ? ag : "\u8D26\u53F7".concat(index), "\u300D\u7B7E\u5230\u5931\u8D25, \u7528\u6237\u9700\u8981\u53BB\u767B\u5F55"));
             case 90:
               ah.next = 95;
               break;
@@ -3705,7 +3715,7 @@ const notify = $.isNode() ? require("./sendNotify") : "";
               Y.f();
               return ah.finish(102);
             case 105:
-              $.title = "共".concat($.userList.length, "个账号,成功").concat($.succCount, "个,失败").concat($.userList.length - 0 - $.succCount, "个");
+              $.title = "\u5171".concat($.userList.length, "\u4E2A\u8D26\u53F7,\u6210\u529F").concat($.succCount, "\u4E2A,\u5931\u8D25").concat($.userList.length - 0 - $.succCount, "\u4E2A");
               ah.next = 108;
               return N($.notifyMsg.join("\n"), {
                 $media: $.avatar
@@ -3778,7 +3788,7 @@ const notify = $.isNode() ? require("./sendNotify") : "";
                   ap.prev = 12;
                   ap.t0 = ap.catch(0);
                   ad.ckStatus = !1;
-                  $.log("[".concat(ad.userName || ad.index, "][ERROR] 请求发起失败!").concat(ap.t0, "\n"));
+                  $.log("[".concat(ad.userName || ad.index, "][ERROR] \u8BF7\u6C42\u53D1\u8D77\u5931\u8D25!").concat(ap.t0, "\n"));
                 case 16:
                 case "end":
                   return ap.stop();
@@ -3819,7 +3829,7 @@ const notify = $.isNode() ? require("./sendNotify") : "";
                 }
                 throw new Error(null == aj || null === (ad = aj.status) || void 0 === ad ? void 0 : ad.msg);
               case 9:
-                $.log("[INFO] 用户积分:".concat(null == aj || null === (ae = aj.data) || void 0 === ae ? void 0 : ae.point));
+                $.log("[INFO] \u7528\u6237\u79EF\u5206:".concat(null == aj || null === (ae = aj.data) || void 0 === ae ? void 0 : ae.point));
                 return ak.abrupt("return", null == aj || null === (af = aj.data) || void 0 === af ? void 0 : af.point);
               case 13:
                 ak.prev = 13;
@@ -3995,7 +4005,7 @@ const notify = $.isNode() ? require("./sendNotify") : "";
                 }
                 throw new Error(null == an || null === (aj = an.status) || void 0 === aj ? void 0 : aj.msg);
               case 9:
-                $.log("[INFO] 完成任务，抽奖次数 +1");
+                $.log("[INFO] \u5B8C\u6210\u4EFB\u52A1\uFF0C\u62BD\u5956\u6B21\u6570 +1");
                 ao.next = 15;
                 break;
               case 12:
@@ -4040,7 +4050,7 @@ const notify = $.isNode() ? require("./sendNotify") : "";
                 }
                 throw new Error(null == an || null === (ai = an.status) || void 0 === ai ? void 0 : ai.msg);
               case 9:
-                $.log("[INFO] 抽奖:".concat(null == an || null === (aj = an.prize) || void 0 === aj ? void 0 : aj.name));
+                $.log("[INFO] \u62BD\u5956:".concat(null == an || null === (aj = an.prize) || void 0 === aj ? void 0 : aj.name));
                 this.drawCount = !0;
                 ao.next = 17;
                 break;
@@ -4087,7 +4097,7 @@ const notify = $.isNode() ? require("./sendNotify") : "";
                 }
                 throw new Error(null == aq || null === (al = aq.status) || void 0 === al ? void 0 : al.msg);
               case 9:
-                $.log("[INFO] 第".concat(ai, "阶梯奖励:").concat(null == aq || null === (am = aq.prize) || void 0 === am ? void 0 : am.name));
+                $.log("[INFO] \u7B2C".concat(ai, "\u9636\u68AF\u5956\u52B1:").concat(null == aq || null === (am = aq.prize) || void 0 === am ? void 0 : am.name));
                 ar.next = 16;
                 break;
               case 12:
@@ -4132,7 +4142,7 @@ const notify = $.isNode() ? require("./sendNotify") : "";
                 }
                 throw new Error(null == ap || null === (ak = ap.status) || void 0 === ak ? void 0 : ak.msg);
               case 9:
-                $.log("[INFO] 开宝箱:".concat(null == ap || null === (al = ap.prize) || void 0 === al ? void 0 : al.name));
+                $.log("[INFO] \u5F00\u5B9D\u7BB1:".concat(null == ap || null === (al = ap.prize) || void 0 === al ? void 0 : al.name));
                 aq.next = 16;
                 break;
               case 12:
@@ -4294,7 +4304,7 @@ const notify = $.isNode() ? require("./sendNotify") : "";
               case 6:
                 as = au.sent;
                 at = null == as || null === (ao = as.client_user) || void 0 === ao ? void 0 : ao.silk;
-                $.log("[INFO] 当前余额:¥".concat(at / 100));
+                $.log("[INFO] \u5F53\u524D\u4F59\u989D:\xA5".concat(at / 100));
                 return au.abrupt("return", at);
               case 12:
                 au.prev = 12;
@@ -4335,7 +4345,7 @@ const notify = $.isNode() ? require("./sendNotify") : "";
                 return this.fetch(at);
               case 6:
                 au = av.sent;
-                $.log("[INFO] 自动提现:成功将 ¥".concat((null == au || null === (aq = au.cw_list[0]) || void 0 === aq ? void 0 : aq.silk) / 100, " 提现到微信"));
+                $.log("[INFO] \u81EA\u52A8\u63D0\u73B0:\u6210\u529F\u5C06 \xA5".concat((null == au || null === (aq = au.cw_list[0]) || void 0 === aq ? void 0 : aq.silk) / 100, " \u63D0\u73B0\u5230\u5FAE\u4FE1"));
                 av.next = 14;
                 break;
               case 10:
@@ -4397,7 +4407,7 @@ const notify = $.isNode() ? require("./sendNotify") : "";
                 a6.next = 11;
                 break;
               }
-              throw new Error("获取token失败！参数缺失");
+              throw new Error("\u83B7\u53D6token\u5931\u8D25\uFF01\u53C2\u6570\u7F3A\u5931");
             case 11:
               var a7 = {};
               a7.userId = a3;
@@ -4410,7 +4420,7 @@ const notify = $.isNode() ? require("./sendNotify") : "";
               });
               E[a5] ? E[a5] = a4 : E.push(a4);
               $.setjson(E, D);
-              $.msg($.name, "🎉账号[".concat(a4.userName, "]更新token成功!"), "");
+              $.msg($.name, "\uD83C\uDF89\u8D26\u53F7[".concat(a4.userName, "]\u66F4\u65B0token\u6210\u529F!"), "");
               a6.next = 21;
               break;
             case 18:
@@ -4531,7 +4541,7 @@ const notify = $.isNode() ? require("./sendNotify") : "";
               }
               throw new Error("no available accounts found");
             case 3:
-              $.log("\n[INFO] 检测到 ".concat(null !== (Y = null == E ? void 0 : E.length) && void 0 !== Y ? Y : 0, " 个账号\n"));
+              $.log("\n[INFO] \u68C0\u6D4B\u5230 ".concat(null !== (Y = null == E ? void 0 : E.length) && void 0 !== Y ? Y : 0, " \u4E2A\u8D26\u53F7\n"));
               (Z = $.userList).push.apply(Z, h(E.map(function (a1) {
                 return new H(a1);
               }).filter(Boolean)));
@@ -4576,7 +4586,7 @@ const notify = $.isNode() ? require("./sendNotify") : "";
                 aj.next = 4;
                 break;
               }
-              throw new Error("[URL][ERROR] 缺少 url 参数");
+              throw new Error("[URL][ERROR] \u7F3A\u5C11 url \u53C2\u6570");
             case 4:
               a2 = Y;
               a3 = a2.url;
@@ -4611,7 +4621,7 @@ const notify = $.isNode() ? require("./sendNotify") : "";
               });
               return aj.abrupt("return", Promise.race([new Promise(function (al, am) {
                 return setTimeout(function () {
-                  return am("当前请求已超时");
+                  return am("\u5F53\u524D\u8BF7\u6C42\u5DF2\u8D85\u65F6");
                 }, af);
               }), ai]));
             case 11:
@@ -4663,7 +4673,7 @@ const notify = $.isNode() ? require("./sendNotify") : "";
     }, W, null, [[0, 15]]);
   }))().catch(function (X) {
     $.logErr(X);
-    $.msg($.name, "⛔️ script run error!", X.message || X);
+    $.msg($.name, "\u26D4\uFE0F script run error!", X.message || X);
   }).finally(C(s().mark(function X() {
     return s().wrap(function (Y) {
       for (;;) {
@@ -5253,7 +5263,7 @@ function Env(t, e) {
         }
       }
       if (!this.isMuteLog) {
-        let t = ["", "==============📣系统通知📣=============="];
+        let t = ["", "==============\uD83D\uDCE3\u7CFB\u7EDF\u901A\u77E5\uD83D\uDCE3=============="];
         t.push(e);
         s && t.push(s);
         i && t.push(i);

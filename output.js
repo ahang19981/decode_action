@@ -1,4 +1,4 @@
-//Fri Sep 26 2025 00:47:46 GMT+0000 (Coordinated Universal Time)
+//Fri Oct 10 2025 08:04:41 GMT+0000 (Coordinated Universal Time)
 //Base:<url id="cv1cref6o68qmpt26ol0" type="url" status="parsed" title="GitHub - echo094/decode-js: JS混淆代码的AST分析工具 AST analysis tool for obfuscated JS code" wc="2165">https://github.com/echo094/decode-js</url>
 //Modify:<url id="cv1cref6o68qmpt26olg" type="url" status="parsed" title="GitHub - smallfawn/decode_action: 世界上本来不存在加密，加密的人多了，也便成就了解密" wc="741">https://github.com/smallfawn/decode_action</url>
 const request = require("request"),
@@ -8,155 +8,158 @@ const request = require("request"),
   } = require("socks-proxy-agent");
 process.noDeprecation = true;
 function generateRandomInteractionMessage() {
-  const _0x200044 = ["正在观看广告", "认真观看中...", "浏览广告内容", "模拟用户行为", "观看视频广告", "保持活跃状态", "广告浏览中", "正常观看时长"];
-  return _0x200044[Math.floor(Math.random() * _0x200044.length)];
+  const _0x9d12ff = ["正在观看广告", "认真观看中...", "浏览广告内容", "模拟用户行为", "观看视频广告", "保持活跃状态", "广告浏览中", "正常观看时长"];
+  return _0x9d12ff[Math.floor(Math.random() * _0x9d12ff.length)];
 }
-const isDevMode = process.env.DEV_MODE === "1" || process.env.DEV_MODE === "true",
-  ksckEnvCount = Object.keys(process.env).filter(_0x44c152 => _0x44c152.toLowerCase().startsWith("ksck")).length;
+const isDevMode = process.env.DEV_MODE === "1" || process.env.DEV_MODE === "true";
+function getAccountConfigsFromEnv() {
+  const _0x184f0a = process.env.ksck;
+  if (!_0x184f0a) return console.log("未找到 ksck 环境变量"), [];
+  const _0x57a731 = _0x184f0a.split("&").map(_0x4672c9 => _0x4672c9.trim()).filter(Boolean);
+  console.log("从ksck环境变量中解析到 " + _0x57a731.length + " 个配置");
+  return _0x57a731;
+}
+const accountConfigs = getAccountConfigsFromEnv(),
+  accountCount = accountConfigs.length;
 console.log("================================================================================");
-console.log("                                  ⭐ 快手至尊金币至尊版 ⭐                                ");
+console.log("                                  ⭐ 快手至尊金币至尊PLUS版 ⭐                                ");
 console.log("                            🏆 安全稳定 · 高效收益 · 尊贵体验 🏆                        ");
 console.log("================================================================================");
 console.log("🎉 系统初始化完成，快手至尊金币版启动成功！🎉");
-console.log("💎 检测到环境变量配置：" + ksckEnvCount + "个账号");
-ksckEnvCount > process.env.MAX_CONCURRENCY && (console.log("错误: 检测到 " + ksckEnvCount + " 个ksck环境变量，最多只允许3个"), process.exit(1));
-const baseRemoteUrl = "http://111.170.33.15:11678",
-  proxyApiUrl = baseRemoteUrl + "/sign.php",
+console.log("💎 检测到环境变量配置：" + accountCount + "个账号");
+accountCount > (process.env.MAX_CONCURRENCY || 999) && (console.log("错误: 检测到 " + accountCount + " 个账号配置，最多只允许" + (process.env.MAX_CONCURRENCY || 999) + "个"), process.exit(1));
+const baseRemoteUrl = "http://154.222.26.251:10933",
+  proxyApiUrl = baseRemoteUrl + "/sign_modified.php",
   queueStatusApiUrl = baseRemoteUrl + "/queue_status";
 function generateKuaishouDid() {
   try {
-    {
-      const _0x4b6e25 = _0x1c75a8 => {
-          {
-            const _0x42dd9c = "0123456789abcdef";
-            let _0x4fc626 = "";
-            for (let _0x2f1f6d = 0; _0x2f1f6d < _0x1c75a8; _0x2f1f6d++) {
-              _0x4fc626 += _0x42dd9c.charAt(Math.floor(Math.random() * _0x42dd9c.length));
-            }
-            return _0x4fc626;
+    const _0x283a9c = _0xdca4b9 => {
+        {
+          const _0x16831c = "0123456789abcdef";
+          let _0x214f0b = "";
+          for (let _0x2b7010 = 0; _0x2b7010 < _0xdca4b9; _0x2b7010++) {
+            _0x214f0b += _0x16831c.charAt(Math.floor(Math.random() * _0x16831c.length));
           }
-        },
-        _0x51e50a = _0x4b6e25(16),
-        _0x1f61ab = "ANDROID_" + _0x51e50a;
-      return _0x1f61ab;
-    }
-  } catch (_0x5506d8) {
-    {
-      console.log("生成did失败: " + _0x5506d8.message);
-      const _0x55d5aa = Date.now().toString(16).toUpperCase();
-      return "ANDROID_" + _0x55d5aa.substring(0, 16);
-    }
+          return _0x214f0b;
+        }
+      },
+      _0xfa25e6 = _0x283a9c(16),
+      _0x4430f1 = "ANDROID_" + _0xfa25e6;
+    return _0x4430f1;
+  } catch (_0x5863ed) {
+    console.log("生成did失败: " + _0x5863ed.message);
+    const _0x25bf7d = Date.now().toString(16).toUpperCase();
+    return "ANDROID_" + _0x25bf7d.substring(0, 16);
   }
 }
-async function sendRequest(_0x5447ea, _0x5555bb = null, _0xc90bff = "Unknown Request") {
-  const _0x3b6915 = {
-    ..._0x5447ea
+async function sendRequest(_0x4e3548, _0x5245ce = null, _0x1b77bd = "Unknown Request") {
+  const _0x555e22 = {
+    ..._0x4e3548
   };
-  if (_0x5555bb) try {
-    _0x3b6915.agent = new SocksProxyAgent(_0x5555bb);
-    if (isDevMode) console.log("[调试] " + _0xc90bff + " 使用代理: " + _0x5555bb);
-  } catch (_0x372017) {
-    console.log("[错误] " + _0xc90bff + " 代理URL无效(" + _0x372017.message + ")，尝试直连模式");
-    if (isDevMode) console.log("[调试] 代理无效，自动切换到直连模式");
-  } else {
+  if (_0x5245ce) {
+    try {
+      _0x555e22.agent = new SocksProxyAgent(_0x5245ce);
+      if (isDevMode) {
+        console.log("[调试] " + _0x1b77bd + " 使用代理: " + _0x5245ce);
+      }
+    } catch (_0x4a5d5f) {
+      console.log("[错误] " + _0x1b77bd + " 代理URL无效(" + _0x4a5d5f.message + ")，尝试直连模式");
+      if (isDevMode) {
+        console.log("[调试] 代理无效，自动切换到直连模式");
+      }
+    }
+  } else isDevMode && console.log("[调试] 未配置代理，使用直连模式");
+  if (isDevMode) {
     {
-      if (isDevMode) console.log("[调试] 未配置代理，使用直连模式");
+      const _0x31dba3 = _0x555e22.method || "GET";
+      console.log("[调试] " + _0x1b77bd + " -> " + _0x31dba3 + " " + _0x555e22.url);
     }
   }
-  if (isDevMode) {
-    const _0x2a1119 = _0x3b6915.method || "GET";
-    console.log("[调试] " + _0xc90bff + " -> " + _0x2a1119 + " " + _0x3b6915.url);
-  }
-  return new Promise(_0x257077 => {
-    request(_0x3b6915, (_0x1af4af, _0x49791f, _0x523129) => {
+  return new Promise(_0x153353 => {
+    request(_0x555e22, (_0x8a8a18, _0x3f5df9, _0x328f58) => {
       {
-        if (_0x1af4af) {
-          if (_0x1af4af.name === "AggregateError" && Array.isArray(_0x1af4af.errors)) {
-            console.log("[调试] " + _0xc90bff + " 请求错误: AggregateError\n" + _0x1af4af.errors.map((_0x2179a6, _0x1c4d32) => "  [" + _0x1c4d32 + "] " + (_0x2179a6?.["message"] || _0x2179a6)).join("\n"));
-          } else console.log("[调试] " + _0xc90bff + " 请求错误: " + (_0x1af4af.message || String(_0x1af4af)));
-          return _0x257077(null);
-        }
-        if (!_0x49791f || _0x49791f.statusCode !== 200) {
-          const _0x49362f = _0x49791f ? _0x49791f.statusCode : "无响应";
-          console.log("[调试] " + _0xc90bff + " HTTP状态码异常: " + _0x49362f);
-          return _0x257077(null);
+        if (_0x8a8a18) return _0x8a8a18.name === "AggregateError" && Array.isArray(_0x8a8a18.errors) ? console.log("[调试] " + _0x1b77bd + " 请求错误: AggregateError\n" + _0x8a8a18.errors.map((_0x57377a, _0x28a045) => "  [" + _0x28a045 + "] " + (_0x57377a?.["message"] || _0x57377a)).join("\n")) : console.log("[调试] " + _0x1b77bd + " 请求错误: " + (_0x8a8a18.message || String(_0x8a8a18))), _0x153353(null);
+        if (!_0x3f5df9 || _0x3f5df9.statusCode !== 200) {
+          const _0x2784f2 = _0x3f5df9 ? _0x3f5df9.statusCode : "无响应";
+          console.log("[调试] " + _0x1b77bd + " HTTP状态码异常: " + _0x2784f2);
+          return _0x153353(null);
         }
         try {
-          _0x257077(JSON.parse(_0x523129));
+          _0x153353(JSON.parse(_0x328f58));
         } catch {
-          _0x257077(_0x523129);
+          _0x153353(_0x328f58);
         }
       }
     });
   });
 }
-async function testProxyConnectivity(_0x345d17, _0x5ea8b9 = "代理连通性检测") {
-  if (!_0x345d17) return {
+async function testProxyConnectivity(_0x2c441c, _0x3a3754 = "代理连通性检测") {
+  if (!_0x2c441c) return {
     "ok": true,
     "msg": "✅ 未配置代理（直连模式）",
     "ip": "localhost"
   };
-  const _0x389541 = await sendRequest({
+  const _0x42b8bf = await sendRequest({
     "method": "GET",
     "url": "https://ipinfo.io/json",
     "headers": {
       "User-Agent": "ProxyTester/1.0"
     },
     "timeout": 8000
-  }, _0x345d17, _0x5ea8b9 + " → ipinfo.io");
-  if (!_0x389541) return {
+  }, _0x2c441c, _0x3a3754 + " → ipinfo.io");
+  if (!_0x42b8bf) return {
     "ok": false,
     "msg": "❌ 无法通过代理访问 ipinfo.io",
     "ip": ""
   };
-  const _0x42006b = _0x389541.ip || _0x389541.ip_address || "";
+  const _0x268420 = _0x42b8bf.ip || _0x42b8bf.ip_address || "";
   return {
     "ok": true,
-    "msg": "✅ SOCKS5代理正常，出口IP: " + (_0x42006b || "未知"),
-    "ip": _0x42006b || "未知"
+    "msg": "✅ SOCKS5代理正常，出口IP: " + (_0x268420 || "未知"),
+    "ip": _0x268420 || "未知"
   };
 }
 const usedProxies = new Set();
-async function getAccountBasicInfo(_0x87fcc0, _0x13eb19, _0x350018 = "?") {
-  const _0x5c3c6b = "https://nebula.kuaishou.com/rest/n/nebula/activity/earn/overview/basicInfo?source=bottom_guide_first",
-    _0x20992a = await sendRequest({
+async function getAccountBasicInfo(_0x42b146, _0x3aef06, _0x56bc58 = "?") {
+  const _0x14ad31 = "https://nebula.kuaishou.com/rest/n/nebula/activity/earn/overview/basicInfo?source=bottom_guide_first",
+    _0x165a67 = await sendRequest({
       "method": "GET",
-      "url": _0x5c3c6b,
+      "url": _0x14ad31,
       "headers": {
         "Host": "nebula.kuaishou.com",
         "User-Agent": "kwai-android aegon/3.56.0",
-        "Cookie": _0x87fcc0,
+        "Cookie": _0x42b146,
         "Content-Type": "application/x-www-form-urlencoded"
       },
       "timeout": 12000
-    }, _0x13eb19, "账号[" + _0x350018 + "] 获取基本信息");
-  if (_0x20992a && _0x20992a.result === 1 && _0x20992a.data) return {
-    "nickname": _0x20992a.data.userData?.["nickname"] || null,
-    "totalCoin": _0x20992a.data.totalCoin ?? null,
-    "allCash": _0x20992a.data.allCash ?? null
+    }, _0x3aef06, "账号[" + _0x56bc58 + "] 获取基本信息");
+  if (_0x165a67 && _0x165a67.result === 1 && _0x165a67.data) return {
+    "nickname": _0x165a67.data.userData?.["nickname"] || null,
+    "totalCoin": _0x165a67.data.totalCoin ?? null,
+    "allCash": _0x165a67.data.allCash ?? null
   };
   return null;
 }
-function centerAlign(_0xd031ef, _0x59c1ea) {
-  _0xd031ef = String(_0xd031ef);
-  if (_0xd031ef.length >= _0x59c1ea) return _0xd031ef.substring(0, _0x59c1ea);
-  const _0x404bee = _0x59c1ea - _0xd031ef.length,
-    _0x479373 = Math.floor(_0x404bee / 2),
-    _0x564d1f = _0x404bee - _0x479373;
-  return " ".repeat(_0x479373) + _0xd031ef + " ".repeat(_0x564d1f);
+function centerAlign(_0x1afcdc, _0x4f9b2c) {
+  _0x1afcdc = String(_0x1afcdc);
+  if (_0x1afcdc.length >= _0x4f9b2c) return _0x1afcdc.substring(0, _0x4f9b2c);
+  const _0x4b62a8 = _0x4f9b2c - _0x1afcdc.length,
+    _0x98422a = Math.floor(_0x4b62a8 / 2),
+    _0x3ae5d4 = _0x4b62a8 - _0x98422a;
+  return " ".repeat(_0x98422a) + _0x1afcdc + " ".repeat(_0x3ae5d4);
 }
 class KuaishouAdTask {
   constructor({
-    index: _0x3b62a8,
-    salt: _0x2e4f8e,
-    cookie: _0x164eb3,
+    index: _0x2f2861,
+    salt: _0x355ca6,
+    cookie: _0x5d462b,
     nickname = "",
     proxyUrl = null
   }) {
-    this.index = _0x3b62a8;
-    this.salt = _0x2e4f8e;
-    this.cookie = _0x164eb3;
-    this.nickname = nickname || "账号" + _0x3b62a8;
+    this.index = _0x2f2861;
+    this.salt = _0x355ca6;
+    this.cookie = _0x5d462b;
+    this.nickname = nickname || "账号" + _0x2f2861;
     this.proxyUrl = proxyUrl;
     this.coinLimit = 500000;
     this.coinExceeded = false;
@@ -199,8 +202,8 @@ class KuaishouAdTask {
       }
     };
     this.taskStats = {};
-    Object.keys(this.taskConfigs).forEach(_0x2a05c5 => {
-      this.taskStats[_0x2a05c5] = {
+    Object.keys(this.taskConfigs).forEach(_0x4d40f0 => {
+      this.taskStats[_0x4d40f0] = {
         "success": 0,
         "failed": 0,
         "totalReward": 0
@@ -211,45 +214,47 @@ class KuaishouAdTask {
     this.lowRewardLimit = 3;
     this.stopAllTasks = false;
     this.taskLimitReached = {};
-    Object.keys(this.taskConfigs).forEach(_0x3ca4e3 => {
-      this.taskLimitReached[_0x3ca4e3] = false;
+    Object.keys(this.taskConfigs).forEach(_0x340b72 => {
+      this.taskLimitReached[_0x340b72] = false;
     });
   }
   async ["checkCoinLimit"]() {
     try {
-      {
-        const _0xc41bef = await getAccountBasicInfo(this.cookie, this.proxyUrl, this.index);
-        if (_0xc41bef && _0xc41bef.totalCoin) {
-          const _0x56fce5 = parseInt(_0xc41bef.totalCoin);
-          if (_0x56fce5 >= this.coinLimit) {
-            console.log("⚠️ 账号[" + this.nickname + "] 金币已达 " + _0x56fce5 + "，超过 " + this.coinLimit + " 阈值，将停止任务");
-            this.coinExceeded = true;
-            this.stopAllTasks = true;
-            return true;
-          }
+      const _0x537452 = await getAccountBasicInfo(this.cookie, this.proxyUrl, this.index);
+      if (_0x537452 && _0x537452.totalCoin) {
+        const _0x34de9c = parseInt(_0x537452.totalCoin);
+        if (_0x34de9c >= this.coinLimit) {
+          console.log("⚠️ 账号[" + this.nickname + "] 金币已达 " + _0x34de9c + "，超过 " + this.coinLimit + " 阈值，将停止任务");
+          this.coinExceeded = true;
+          this.stopAllTasks = true;
+          return true;
         }
-        return false;
       }
-    } catch (_0x52c864) {
-      console.log("账号[" + this.nickname + "] 金币检查异常: " + _0x52c864.message);
+      return false;
+    } catch (_0x5aaea7) {
+      console.log("账号[" + this.nickname + "] 金币检查异常: " + _0x5aaea7.message);
       return false;
     }
   }
   ["extractCookieInfo"]() {
     try {
-      const _0x4fcf03 = this.cookie.match(/egid=([^;]+)/),
-        _0x3d1a6e = this.cookie.match(/did=([^;]+)/),
-        _0x529d83 = this.cookie.match(/userId=([^;]+)/),
-        _0x292d33 = this.cookie.match(/kuaishou\.api_st=([^;]+)/),
-        _0x444d06 = this.cookie.match(/appver=([^;]+)/);
-      this.egid = _0x4fcf03 ? _0x4fcf03[1] : "";
-      this.did = _0x3d1a6e ? _0x3d1a6e[1] : "";
-      this.userId = _0x529d83 ? _0x529d83[1] : "";
-      this.kuaishouApiSt = _0x292d33 ? _0x292d33[1] : "";
-      this.appver = _0x444d06 ? _0x444d06[1] : "";
-      (!this.egid || !this.did) && console.log("账号[" + this.nickname + "] cookie格式可能无 egid 或 did，但继续尝试...");
-    } catch (_0x5594a7) {
-      console.log("账号[" + this.nickname + "] 解析cookie失败: " + _0x5594a7.message);
+      {
+        const _0x135fb3 = this.cookie.match(/egid=([^;]+)/),
+          _0x41abbc = this.cookie.match(/did=([^;]+)/),
+          _0x2920fd = this.cookie.match(/userId=([^;]+)/),
+          _0x4cecd0 = this.cookie.match(/kuaishou\.api_st=([^;]+)/),
+          _0x561ca5 = this.cookie.match(/appver=([^;]+)/);
+        this.egid = _0x135fb3 ? _0x135fb3[1] : "";
+        this.did = _0x41abbc ? _0x41abbc[1] : "";
+        this.userId = _0x2920fd ? _0x2920fd[1] : "";
+        this.kuaishouApiSt = _0x4cecd0 ? _0x4cecd0[1] : "";
+        this.appver = _0x561ca5 ? _0x561ca5[1] : "13.7.20.10468";
+        if (!this.egid || !this.did) {
+          console.log("账号[" + this.nickname + "] cookie格式可能无 egid 或 did，但继续尝试...");
+        }
+      }
+    } catch (_0x4bcecb) {
+      console.log("账号[" + this.nickname + "] 解析cookie失败: " + _0x4bcecb.message);
     }
   }
   ["getTaskStats"]() {
@@ -257,38 +262,36 @@ class KuaishouAdTask {
   }
   ["printTaskStats"]() {
     console.log("\n账号[" + this.nickname + "] 任务执行统计:");
-    for (const [_0x45b591, _0x49766a] of Object.entries(this.taskStats)) {
-      {
-        const _0x42746a = this.taskConfigs[_0x45b591].name;
-        console.log("  " + _0x42746a + ": 成功" + _0x49766a.success + "次, 失败" + _0x49766a.failed + "次, 总奖励" + _0x49766a.totalReward + "金币");
-      }
+    for (const [_0x45c2a7, _0x25d9bd] of Object.entries(this.taskStats)) {
+      const _0x294969 = this.taskConfigs[_0x45c2a7].name;
+      console.log("  " + _0x294969 + ": 成功" + _0x25d9bd.success + "次, 失败" + _0x25d9bd.failed + "次, 总奖励" + _0x25d9bd.totalReward + "金币");
     }
   }
-  async ["retryOperation"](_0x17868e, _0x23f7c9, _0x426c46 = 3, _0x59e647 = 2000) {
-    let _0x5e1ec9 = 0,
-      _0x185a4e = null;
-    while (_0x5e1ec9 < _0x426c46) {
+  async ["retryOperation"](_0x26e842, _0x515844, _0x3e3ee2 = 3, _0x496b2c = 2000) {
+    let _0x45c655 = 0,
+      _0xde7082 = null;
+    while (_0x45c655 < _0x3e3ee2) {
       try {
-        const _0x254563 = await _0x17868e();
-        if (_0x254563) return _0x254563;
-        _0x185a4e = new Error(_0x23f7c9 + " 返回空结果");
-      } catch (_0x31f4e8) {
-        _0x185a4e = _0x31f4e8;
-        console.log("账号[" + this.nickname + "] " + _0x23f7c9 + " 异常: " + _0x31f4e8.message);
+        {
+          const _0xe74975 = await _0x26e842();
+          if (_0xe74975) return _0xe74975;
+          _0xde7082 = new Error(_0x515844 + " 返回空结果");
+        }
+      } catch (_0x5d796d) {
+        _0xde7082 = _0x5d796d;
+        console.log("账号[" + this.nickname + "] " + _0x515844 + " 异常: " + _0x5d796d.message);
       }
-      _0x5e1ec9++;
-      _0x5e1ec9 < _0x426c46 && (console.log("账号[" + this.nickname + "] " + _0x23f7c9 + " 失败，重试 " + _0x5e1ec9 + "/" + _0x426c46), await new Promise(_0x13c368 => setTimeout(_0x13c368, _0x59e647)));
+      _0x45c655++;
+      _0x45c655 < _0x3e3ee2 && (console.log("账号[" + this.nickname + "] " + _0x515844 + " 失败，重试 " + _0x45c655 + "/" + _0x3e3ee2), await new Promise(_0x4098fa => setTimeout(_0x4098fa, _0x496b2c)));
     }
-    if (isDevMode && _0x185a4e) {
-      console.log("[调试] " + _0x23f7c9 + " 最终失败: " + _0x185a4e.message);
-    }
+    isDevMode && _0xde7082 && console.log("[调试] " + _0x515844 + " 最终失败: " + _0xde7082.message);
     return null;
   }
-  async ["getAdInfo"](_0x1a0650) {
+  async ["getAdInfo"](_0x31101a) {
     try {
       {
-        const _0x5cd22b = "/rest/e/reward/mixed/ad",
-          _0x353101 = {
+        const _0x447f50 = "/rest/e/reward/mixed/ad",
+          _0x533d8e = {
             "encData": "|encData|",
             "sign": "|sign|",
             "cs": "false",
@@ -298,7 +301,7 @@ class KuaishouAdTask {
             "kuaishou.api_st": this.kuaishouApiSt,
             "uQaTag": "1##swLdgl:99#ecPp:-9#cmNt:-0#cmHs:-3#cmMnsl:-0"
           },
-          _0x2b6a92 = {
+          _0x375ea6 = {
             "earphoneMode": "1",
             "mod": "Xiaomi(23116PN5BC)",
             "appver": this.appver,
@@ -322,7 +325,7 @@ class KuaishouAdTask {
             "abi": "arm64",
             "userRecoBit": "0"
           },
-          _0x245823 = {
+          _0x1bd387 = {
             "appInfo": {
               "appId": "kuaishou_nebula",
               "name": "快手极速版",
@@ -347,217 +350,209 @@ class KuaishouAdTask {
             },
             "impInfo": [{
               "pageId": 11101,
-              "subPageId": _0x1a0650.subPageId,
+              "subPageId": _0x31101a.subPageId,
               "action": 0,
               "browseType": 3,
               "impExtData": "{}",
               "mediaExtData": "{}"
             }]
           },
-          _0x4c77a9 = Buffer.from(JSON.stringify(_0x245823)).toString("base64"),
-          _0x4e8f46 = await this.generateSignature2(_0x5cd22b, querystring.stringify({
-            ..._0x2b6a92,
-            ..._0x353101
-          }), this.salt, _0x4c77a9);
-        if (!_0x4e8f46) return console.log("❌ 账号[" + this.nickname + "] 生成签名失败，无法获取" + _0x1a0650.name), null;
-        const _0x32f5d1 = {
-          ..._0x2b6a92,
-          "sig": _0x4e8f46.sig,
-          "__NS_sig3": _0x4e8f46.__NS_sig3,
+          _0x24bcb5 = Buffer.from(JSON.stringify(_0x1bd387)).toString("base64"),
+          _0xe19f6a = await this.generateSignature2(_0x447f50, querystring.stringify({
+            ..._0x375ea6,
+            ..._0x533d8e
+          }), this.salt, _0x24bcb5);
+        if (!_0xe19f6a) return console.log("❌ 账号[" + this.nickname + "] 生成签名失败，无法获取" + _0x31101a.name), null;
+        const _0x4c195a = {
+          ..._0x375ea6,
+          "sig": _0xe19f6a.sig,
+          "__NS_sig3": _0xe19f6a.__NS_sig3,
           "__NS_xfalcon": "",
-          "__NStokensig": _0x4e8f46.__NStokensig
+          "__NStokensig": _0xe19f6a.__NStokensig
         };
-        _0x353101.encData = _0x4e8f46.encData;
-        _0x353101.sign = _0x4e8f46.sign;
-        const _0x2c9f8b = "https://api.e.kuaishou.com" + _0x5cd22b + "?" + querystring.stringify(_0x32f5d1),
-          _0x2c050c = await sendRequest({
+        _0x533d8e.encData = _0xe19f6a.encData;
+        _0x533d8e.sign = _0xe19f6a.sign;
+        const _0x1f9b9f = "https://api.e.kuaishou.com" + _0x447f50 + "?" + querystring.stringify(_0x4c195a),
+          _0x290a99 = await sendRequest({
             "method": "POST",
-            "url": _0x2c9f8b,
+            "url": _0x1f9b9f,
             "headers": {
               "Host": "api.e.kuaishou.com",
               "User-Agent": "kwai-android aegon/3.56.0",
               "Cookie": "kuaishou_api_st=" + this.kuaishouApiSt
             },
-            "form": _0x353101,
+            "form": _0x533d8e,
             "timeout": 12000
           }, this.proxyUrl, "账号[" + this.nickname + "] 获取广告");
-        if (!_0x2c050c) return null;
-        if (_0x2c050c.errorMsg === "OK" && _0x2c050c.feeds && _0x2c050c.feeds[0] && _0x2c050c.feeds[0].ad) {
+        if (!_0x290a99) return null;
+        if (_0x290a99.errorMsg === "OK" && _0x290a99.feeds && _0x290a99.feeds[0] && _0x290a99.feeds[0].ad) {
           {
-            const _0x414418 = _0x2c050c.feeds[0].caption || _0x2c050c.feeds[0].ad?.["caption"] || "";
-            if (_0x414418) {
-              console.log("✅ 账号[" + this.nickname + "] 成功获取到广告信息：" + _0x414418);
-            }
-            const _0x103ce4 = _0x2c050c.feeds[0].exp_tag || "",
-              _0x10516b = _0x103ce4.split("/")[1]?.["split"]("_")?.[0] || "";
+            const _0x19f524 = _0x290a99.feeds[0].caption || _0x290a99.feeds[0].ad?.["caption"] || "";
+            _0x19f524 && console.log("✅ 账号[" + this.nickname + "] 成功获取到广告信息：" + _0x19f524);
+            const _0x37422d = _0x290a99.feeds[0].exp_tag || "",
+              _0x24c875 = _0x37422d.split("/")[1]?.["split"]("_")?.[0] || "";
             return {
-              "cid": _0x2c050c.feeds[0].ad.creativeId,
-              "llsid": _0x10516b,
+              "cid": _0x290a99.feeds[0].ad.creativeId,
+              "llsid": _0x24c875,
               "mediaScene": "video"
             };
           }
         }
-        isDevMode && console.log("[调试] getAdInfo 原始响应:", JSON.stringify(_0x2c050c));
+        isDevMode && console.log("[调试] getAdInfo 原始响应:", JSON.stringify(_0x290a99));
         return null;
       }
-    } catch (_0x43ea5c) {
-      console.log("❌ 账号[" + this.nickname + "] 获取广告异常: " + _0x43ea5c.message);
+    } catch (_0x1e37bb) {
+      console.log("❌ 账号[" + this.nickname + "] 获取广告异常: " + _0x1e37bb.message);
       return null;
     }
   }
-  async ["generateSignature"](_0x208ad8, _0x17f311, _0x47879b, _0x39a307) {
-    try {
-      const _0x314b93 = JSON.stringify({
-          "businessId": _0x39a307.businessId,
-          "endTime": this.endTime,
-          "extParams": "",
-          "mediaScene": "video",
-          "neoInfos": [{
-            "creativeId": _0x208ad8,
-            "extInfo": "",
-            "llsid": _0x17f311,
-            "requestSceneType": _0x39a307.requestSceneType,
-            "taskType": _0x39a307.taskType,
-            "watchExpId": "",
-            "watchStage": 0
-          }],
-          "pageId": 11101,
-          "posId": _0x39a307.posId,
-          "reportType": 0,
-          "sessionId": "",
-          "startTime": this.startTime,
-          "subPageId": _0x39a307.subPageId
-        }),
-        _0x115cec = "bizStr=" + encodeURIComponent(_0x314b93) + "&cs=false&client_key=2ac2a76d",
-        _0x227336 = this.queryParams + "&" + _0x115cec,
-        _0x2eef34 = await this.requestSignService({
-          "urlpath": this.taskReportPath,
-          "urldata": _0x227336,
-          "api_client_salt": this.salt
-        }, "账号[" + this.nickname + "] 生成报告签名");
-      if (!_0x2eef34 || !_0x2eef34.data) return null;
-      return {
-        "sig": _0x2eef34.data.sig,
-        "sig3": _0x2eef34.data.__NS_sig3,
-        "sigtoken": _0x2eef34.data.__NStokensig,
-        "post": _0x115cec
-      };
-    } catch (_0x42aa6f) {
-      console.log("❌ 账号[" + this.nickname + "] 生成签名异常: " + _0x42aa6f.message);
-      return null;
-    }
-  }
-  async ["generateSignature2"](_0x25ae84, _0x2f8b7b, _0x4ab767, _0x4e1718) {
-    const _0x4be14f = await this.requestSignService({
-      "urlpath": _0x25ae84,
-      "urldata": _0x2f8b7b,
-      "api_client_salt": _0x4ab767,
-      "req_str": _0x4e1718
-    }, "账号[" + this.nickname + "] 生成广告签名");
-    if (!_0x4be14f) return null;
-    return _0x4be14f.data || _0x4be14f;
-  }
-  async ["submitReport"](_0x351159, _0x58f592, _0x37a786, _0x5bfb8a, _0x2029a3, _0x1b66ce) {
+  async ["generateSignature"](_0x5a6011, _0x393d92, _0x5f1859, _0x238d40) {
     try {
       {
-        const _0x22ec16 = "https://api.e.kuaishou.com" + this.taskReportPath + "?" + (this.queryParams + "&sig=" + _0x351159 + "&__NS_sig3=" + _0x58f592 + "&__NS_xfalcon=&__NStokensig=" + _0x37a786),
-          _0x466336 = await sendRequest({
-            "method": "POST",
-            "url": _0x22ec16,
-            "headers": {
-              "Host": "api.e.kuaishou.cn",
-              "User-Agent": "kwai-android aegon/3.56.0",
-              "Cookie": this.cookie,
-              "Content-Type": "application/x-www-form-urlencoded"
-            },
-            "body": _0x5bfb8a,
-            "timeout": 12000
-          }, this.proxyUrl, "账号[" + this.nickname + "] 提交任务");
-        if (!_0x466336) {
-          return {
-            "success": false,
-            "reward": 0
-          };
+        const _0x5d4b46 = JSON.stringify({
+            "businessId": _0x238d40.businessId,
+            "endTime": this.endTime,
+            "extParams": "",
+            "mediaScene": "video",
+            "neoInfos": [{
+              "creativeId": _0x5a6011,
+              "extInfo": "",
+              "llsid": _0x393d92,
+              "requestSceneType": _0x238d40.requestSceneType,
+              "taskType": _0x238d40.taskType,
+              "watchExpId": "",
+              "watchStage": 0
+            }],
+            "pageId": 11101,
+            "posId": _0x238d40.posId,
+            "reportType": 0,
+            "sessionId": "",
+            "startTime": this.startTime,
+            "subPageId": _0x238d40.subPageId
+          }),
+          _0x1e3126 = "bizStr=" + encodeURIComponent(_0x5d4b46) + "&cs=false&client_key=2ac2a76d",
+          _0x185014 = this.queryParams + "&" + _0x1e3126,
+          _0x49c29a = await this.requestSignService({
+            "urlpath": this.taskReportPath,
+            "urldata": _0x185014,
+            "api_client_salt": this.salt
+          }, "账号[" + this.nickname + "] 生成报告签名");
+        if (!_0x49c29a || !_0x49c29a.data) {
+          return null;
         }
-        if (_0x466336.result === 1) {
-          const _0x58994a = _0x466336.data?.["neoAmount"] || 0;
-          console.log("💰 账号[" + this.nickname + "] " + _0x1b66ce.name + _0x58994a + "金币奖励！");
-          _0x58994a < 1000 && (this.did = generateKuaishouDid(), console.log("⚠️ 金币低于阈值,模拟下载应用提升权重^^^^^^"));
-          return {
-            "success": true,
-            "reward": _0x58994a
-          };
-        }
-        if ([20107, 20108, 1003, 415].includes(_0x466336.result)) return console.log("⚠️ 账号[" + this.nickname + "] " + _0x1b66ce.name + " 已达上限"), this.taskLimitReached[_0x2029a3] = true, {
-          "success": false,
-          "reward": 0
+        return {
+          "sig": _0x49c29a.data.sig,
+          "sig3": _0x49c29a.data.__NS_sig3,
+          "sigtoken": _0x49c29a.data.__NStokensig,
+          "post": _0x1e3126
         };
-        console.log("❌ 账号[" + this.nickname + "] " + _0x1b66ce.name + " 奖励失败，result=" + _0x466336.result + " msg=" + (_0x466336.errorMsg || ""));
-        if (isDevMode) {
-          console.log("[调试] submitReport 原始响应:", JSON.stringify(_0x466336));
-        }
+      }
+    } catch (_0x1cc6fd) {
+      console.log("❌ 账号[" + this.nickname + "] 生成签名异常: " + _0x1cc6fd.message);
+      return null;
+    }
+  }
+  async ["generateSignature2"](_0x437ce8, _0x17f99d, _0x3d586c, _0x3719d8) {
+    const _0x29a41c = await this.requestSignService({
+      "urlpath": _0x437ce8,
+      "urldata": _0x17f99d,
+      "api_client_salt": _0x3d586c,
+      "req_str": _0x3719d8
+    }, "账号[" + this.nickname + "] 生成广告签名");
+    if (!_0x29a41c) return null;
+    return _0x29a41c.data || _0x29a41c;
+  }
+  async ["submitReport"](_0x54362b, _0x24b41d, _0x2b8b15, _0x58e35b, _0x4a47ab, _0x129350) {
+    try {
+      const _0x399f78 = "https://api.e.kuaishou.com" + this.taskReportPath + "?" + (this.queryParams + "&sig=" + _0x54362b + "&__NS_sig3=" + _0x24b41d + "&__NS_xfalcon=&__NStokensig=" + _0x2b8b15),
+        _0x2576da = await sendRequest({
+          "method": "POST",
+          "url": _0x399f78,
+          "headers": {
+            "Host": "api.e.kuaishou.cn",
+            "User-Agent": "kwai-android aegon/3.56.0",
+            "Cookie": this.cookie,
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          "body": _0x58e35b,
+          "timeout": 12000
+        }, this.proxyUrl, "账号[" + this.nickname + "] 提交任务");
+      if (!_0x2576da) {
         return {
           "success": false,
           "reward": 0
         };
       }
-    } catch (_0x435b13) {
-      console.log("❌ 账号[" + this.nickname + "] 提交任务异常: " + _0x435b13.message);
+      if (_0x2576da.result === 1) {
+        const _0x4b71ca = _0x2576da.data?.["neoAmount"] || 0;
+        console.log("💰 账号[" + this.nickname + "] " + _0x129350.name + _0x4b71ca + "金币奖励！");
+        _0x4b71ca < 1000 && (this.did = generateKuaishouDid(), console.log("⚠️ 金币低于阈值,模拟下载应用提升权重^^^^^^"));
+        return {
+          "success": true,
+          "reward": _0x4b71ca
+        };
+      }
+      if ([20107, 20108, 1003, 415].includes(_0x2576da.result)) return console.log("⚠️ 账号[" + this.nickname + "] " + _0x129350.name + " 已达上限"), this.taskLimitReached[_0x4a47ab] = true, {
+        "success": false,
+        "reward": 0
+      };
+      console.log("❌ 账号[" + this.nickname + "] " + _0x129350.name + " 奖励失败，result=" + _0x2576da.result + " msg=" + (_0x2576da.data || ""));
+      isDevMode && console.log("[调试] submitReport 原始响应:", JSON.stringify(_0x2576da));
+      return {
+        "success": false,
+        "reward": 0
+      };
+    } catch (_0x3e7223) {
+      console.log("❌ 账号[" + this.nickname + "] 提交任务异常: " + _0x3e7223.message);
       return {
         "success": false,
         "reward": 0
       };
     }
   }
-  async ["requestSignService"](_0x4d90de, _0x36dca9) {
-    const _0x496b6a = (process.env.km || "").trim();
-    if (!_0x496b6a) return null;
-    const _0x4301f0 = await sendRequest({
+  async ["requestSignService"](_0x5d02c5, _0x2977df) {
+    const _0xc935eb = (process.env.km || "").trim();
+    if (!_0xc935eb) return null;
+    const _0x4aa2d3 = await sendRequest({
       "method": "POST",
-      "url": proxyApiUrl + "?card_key=" + encodeURIComponent(_0x496b6a),
+      "url": proxyApiUrl + "?card_key=" + encodeURIComponent(_0xc935eb),
       "headers": {
         "Content-Type": "application/json",
         "User-Agent": "Mozilla/5.0",
-        "X-Card-Key": _0x496b6a
+        "X-Card-Key": _0xc935eb
       },
-      "body": JSON.stringify(_0x4d90de),
+      "body": JSON.stringify(_0x5d02c5),
       "timeout": 15000
-    }, null, _0x36dca9 + "（签名服务）");
-    if (!_0x4301f0) return null;
-    if (_0x4301f0.success && _0x4301f0.status === "queued" && _0x4301f0.queue_id) {
-      {
-        const _0x8ce2eb = await this.pollQueueStatus(_0x4301f0.queue_id);
-        if (_0x8ce2eb && _0x8ce2eb.success && (_0x8ce2eb.status === "completed" || _0x8ce2eb.status === "processed")) {
-          return _0x8ce2eb;
-        }
-        console.log("账号[" + this.nickname + "] 签名失败: " + (_0x8ce2eb?.["error"] || _0x8ce2eb?.["status"] || "未知"));
-        return null;
-      }
+    }, null, _0x2977df + "（签名服务）");
+    if (!_0x4aa2d3) return null;
+    if (_0x4aa2d3.success && _0x4aa2d3.status === "queued" && _0x4aa2d3.queue_id) {
+      const _0x15cabf = await this.pollQueueStatus(_0x4aa2d3.queue_id);
+      if (_0x15cabf && _0x15cabf.success && (_0x15cabf.status === "completed" || _0x15cabf.status === "processed")) return _0x15cabf;
+      console.log("账号[" + this.nickname + "] 签名失败: " + (_0x15cabf?.["error"] || _0x15cabf?.["status"] || "未知"));
+      return null;
     }
-    if (_0x4301f0.success && (!_0x4301f0.status || _0x4301f0.status === "processed" || _0x4301f0.status === "completed")) return _0x4301f0;
-    console.log("账号[" + this.nickname + "] 签名失败: " + (_0x4301f0.error || _0x4301f0.message || _0x4301f0.status || "未知"));
+    if (_0x4aa2d3.success && (!_0x4aa2d3.status || _0x4aa2d3.status === "processed" || _0x4aa2d3.status === "completed")) return _0x4aa2d3;
+    console.log("账号[" + this.nickname + "] 签名失败: " + (_0x4aa2d3.error || _0x4aa2d3.message || _0x4aa2d3.status || "未知"));
     return null;
   }
-  async ["pollQueueStatus"](_0x2aae48, _0x2ac275 = 30000, _0x118a60 = 2000) {
-    const _0x41465e = Date.now();
-    while (Date.now() - _0x41465e < _0x2ac275) {
-      const _0x43ea21 = await sendRequest({
-        "method": "GET",
-        "url": queueStatusApiUrl + "?queue_id=" + encodeURIComponent(_0x2aae48),
-        "headers": {
-          "User-Agent": "Mozilla/5.0"
-        },
-        "timeout": 10000
-      }, null, "账号[" + this.nickname + "] 签名排队");
-      if (_0x43ea21?.["success"]) {
-        {
-          if (_0x43ea21.status === "completed" || _0x43ea21.status === "processed") {
-            return _0x43ea21;
-          }
-          if (_0x43ea21.status === "failed") return _0x43ea21;
+  async ["pollQueueStatus"](_0x523750, _0x18cfb0 = 30000, _0x309847 = 2000) {
+    const _0x7835db = Date.now();
+    while (Date.now() - _0x7835db < _0x18cfb0) {
+      {
+        const _0x19ef91 = await sendRequest({
+          "method": "GET",
+          "url": queueStatusApiUrl + "?queue_id=" + encodeURIComponent(_0x523750),
+          "headers": {
+            "User-Agent": "Mozilla/5.0"
+          },
+          "timeout": 10000
+        }, null, "账号[" + this.nickname + "] 签名排队");
+        if (_0x19ef91?.["success"]) {
+          if (_0x19ef91.status === "completed" || _0x19ef91.status === "processed") return _0x19ef91;
+          if (_0x19ef91.status === "failed") return _0x19ef91;
         }
+        await new Promise(_0x422f52 => setTimeout(_0x422f52, _0x309847));
       }
-      await new Promise(_0x2bf090 => setTimeout(_0x2bf090, _0x118a60));
     }
     return {
       "success": false,
@@ -565,412 +560,317 @@ class KuaishouAdTask {
       "error": "queue_timeout"
     };
   }
-  async ["executeTask"](_0x394783) {
-    const _0x185426 = this.taskConfigs[_0x394783];
-    if (!_0x185426) return console.log("❌ 账号[" + this.nickname + "] 未知任务: " + _0x394783), false;
-    if (this.taskLimitReached[_0x394783]) return false;
+  async ["executeTask"](_0x406adb) {
+    const _0x2942b8 = this.taskConfigs[_0x406adb];
+    if (!_0x2942b8) return console.log("❌ 账号[" + this.nickname + "] 未知任务: " + _0x406adb), false;
+    if (this.taskLimitReached[_0x406adb]) return false;
     try {
-      const _0x1102e5 = await this.retryOperation(() => this.getAdInfo(_0x185426), "获取" + _0x185426.name + "信息", 3);
-      if (!_0x1102e5) {
-        this.taskStats[_0x394783].failed++;
-        return false;
+      const _0x1266f1 = await this.retryOperation(() => this.getAdInfo(_0x2942b8), "获取" + _0x2942b8.name + "信息", 3);
+      if (!_0x1266f1) return this.taskStats[_0x406adb].failed++, false;
+      const _0xabe7f4 = Math.floor(Math.random() * 10000) + 30000;
+      console.log("🔍 账号[" + this.nickname + "] ==>" + _0x2942b8.name + " " + generateRandomInteractionMessage() + " " + Math.round(_0xabe7f4 / 1000) + " 秒");
+      await new Promise(_0x87bf85 => setTimeout(_0x87bf85, _0xabe7f4));
+      const _0x4de298 = await this.retryOperation(() => this.generateSignature(_0x1266f1.cid, _0x1266f1.llsid, _0x406adb, _0x2942b8), "生成" + _0x2942b8.name + "签名", 3);
+      if (!_0x4de298) return this.taskStats[_0x406adb].failed++, false;
+      const _0x36f1fc = await this.retryOperation(() => this.submitReport(_0x4de298.sig, _0x4de298.sig3, _0x4de298.sigtoken, _0x4de298.post, _0x406adb, _0x2942b8), "提交" + _0x2942b8.name + "报告", 3);
+      if (_0x36f1fc?.["success"]) {
+        this.taskStats[_0x406adb].success++;
+        this.taskStats[_0x406adb].totalReward += _0x36f1fc.reward || 0;
+        if ((_0x36f1fc.reward || 0) <= this.lowRewardThreshold) {
+          this.lowRewardStreak++;
+          this.lowRewardStreak >= this.lowRewardLimit && (console.log("🏁 账号[" + this.nickname + "] 连续" + this.lowRewardLimit + "次奖励≤" + this.lowRewardThreshold + "，停止全部任务"), this.stopAllTasks = true);
+        } else this.lowRewardStreak = 0;
+        return true;
       }
-      const _0x4c5500 = Math.floor(Math.random() * 10000) + 30000;
-      console.log("🔍 账号[" + this.nickname + "] ==>" + _0x185426.name + " " + generateRandomInteractionMessage() + " " + Math.round(_0x4c5500 / 1000) + " 秒");
-      await new Promise(_0x13ab64 => setTimeout(_0x13ab64, _0x4c5500));
-      const _0x2cc8b1 = await this.retryOperation(() => this.generateSignature(_0x1102e5.cid, _0x1102e5.llsid, _0x394783, _0x185426), "生成" + _0x185426.name + "签名", 3);
-      if (!_0x2cc8b1) return this.taskStats[_0x394783].failed++, false;
-      const _0x1a7acc = await this.retryOperation(() => this.submitReport(_0x2cc8b1.sig, _0x2cc8b1.sig3, _0x2cc8b1.sigtoken, _0x2cc8b1.post, _0x394783, _0x185426), "提交" + _0x185426.name + "报告", 3);
-      if (_0x1a7acc?.["success"]) return this.taskStats[_0x394783].success++, this.taskStats[_0x394783].totalReward += _0x1a7acc.reward || 0, (_0x1a7acc.reward || 0) <= this.lowRewardThreshold ? (this.lowRewardStreak++, this.lowRewardStreak >= this.lowRewardLimit && (console.log("🏁 账号[" + this.nickname + "] 连续" + this.lowRewardLimit + "次奖励≤" + this.lowRewardThreshold + "，停止全部任务"), this.stopAllTasks = true)) : this.lowRewardStreak = 0, true;
-      this.taskStats[_0x394783].failed++;
+      this.taskStats[_0x406adb].failed++;
       return false;
-    } catch (_0x24e577) {
-      console.log("❌ 账号[" + this.nickname + "] 任务异常(" + _0x394783 + "): " + _0x24e577.message);
-      this.taskStats[_0x394783].failed++;
+    } catch (_0x2a3868) {
+      console.log("❌ 账号[" + this.nickname + "] 任务异常(" + _0x406adb + "): " + _0x2a3868.message);
+      this.taskStats[_0x406adb].failed++;
       return false;
     }
   }
   async ["executeAllTasksByPriority"]() {
-    const _0x151920 = Object.keys(this.taskConfigs),
-      _0x2874e8 = {};
-    for (const _0x4314f4 of _0x151920) {
+    const _0x4efc1f = Object.keys(this.taskConfigs),
+      _0x4da6c6 = {};
+    for (const _0x2f6a21 of _0x4efc1f) {
       {
         if (this.stopAllTasks) break;
-        console.log("🚀 账号[" + this.nickname + "] 开始任务：" + this.taskConfigs[_0x4314f4].name);
-        _0x2874e8[_0x4314f4] = await this.executeTask(_0x4314f4);
+        console.log("🚀 账号[" + this.nickname + "] 开始任务：" + this.taskConfigs[_0x2f6a21].name);
+        _0x4da6c6[_0x2f6a21] = await this.executeTask(_0x2f6a21);
         if (this.stopAllTasks) break;
-        if (_0x4314f4 !== _0x151920[_0x151920.length - 1]) {
-          {
-            const _0x2de022 = Math.floor(Math.random() * 8000) + 7000;
-            console.log("⌛ 账号[" + this.nickname + "] 下一个任务，随机等待 " + Math.round(_0x2de022 / 1000) + " 秒");
-            await new Promise(_0x356502 => setTimeout(_0x356502, _0x2de022));
-          }
+        if (_0x2f6a21 !== _0x4efc1f[_0x4efc1f.length - 1]) {
+          const _0x13b107 = Math.floor(Math.random() * 8000) + 7000;
+          console.log("⏱ 账号[" + this.nickname + "] 下一个任务，随机等待 " + Math.round(_0x13b107 / 1000) + " 秒");
+          await new Promise(_0x133d5d => setTimeout(_0x133d5d, _0x13b107));
         }
       }
     }
-    return _0x2874e8;
+    return _0x4da6c6;
   }
 }
-function parseAccountConfig(_0x2f8478) {
-  const _0x5af08b = String(_0x2f8478 || "").trim().split("#");
-  if (_0x5af08b.length < 2) return null;
-  const _0x17cf69 = _0x5af08b[0],
-    _0x382cf5 = _0x5af08b.slice(1, _0x5af08b.length - (_0x5af08b.length >= 3 ? 1 : 0)).join("#");
-  let _0x23f6d0 = null;
-  if (_0x5af08b.length >= 3) {
-    const _0x2b1e79 = _0x5af08b[_0x5af08b.length - 1].trim();
-    console.log(_0x2b1e79);
-    if (_0x2b1e79.includes("|")) {
-      {
-        console.log("开始解析格式1 " + _0x2b1e79);
-        const _0x2c907f = _0x2b1e79.split("|");
-        if (_0x2c907f.length >= 2) {
-          const [_0x249c1e, _0x342461, _0x8b687, _0x41266d] = _0x2c907f;
-          _0x23f6d0 = "socks5://" + _0x8b687 + ":" + _0x41266d + "@" + _0x249c1e + ":" + _0x342461;
-        }
+function parseAccountConfig(_0x91d22) {
+  const _0x156840 = String(_0x91d22 || "").trim().split("#");
+  if (_0x156840.length < 2) return null;
+  const _0x53896d = _0x156840[0],
+    _0x235a2d = _0x156840.slice(1, _0x156840.length - (_0x156840.length >= 3 ? 1 : 0)).join("#");
+  let _0x1dc31e = null;
+  if (_0x156840.length >= 3) {
+    const _0x47f386 = _0x156840[_0x156840.length - 1].trim();
+    console.log(_0x47f386);
+    if (_0x47f386.includes("|")) {
+      console.log("开始解析格式1 " + _0x47f386);
+      const _0x223184 = _0x47f386.split("|");
+      if (_0x223184.length >= 2) {
+        const [_0x3dc47d, _0x530042, _0x5d01c0, _0x39e849] = _0x223184;
+        _0x1dc31e = "socks5://" + _0x5d01c0 + ":" + _0x39e849 + "@" + _0x3dc47d + ":" + _0x530042;
       }
-    } else {
-      _0x23f6d0 = /^socks5:\/\/.+/i.test(_0x2b1e79) ? _0x2b1e79 : null;
-    }
-    !_0x23f6d0 && console.log("⚠️ 代理字段不是 socks5:// URL，忽略：" + _0x2b1e79);
+    } else _0x1dc31e = /^socks5:\/\/.+/i.test(_0x47f386) ? _0x47f386 : null;
+    !_0x1dc31e && console.log("⚠️ 代理字段不是 socks5:// URL，忽略：" + _0x47f386);
   }
   return {
-    "salt": _0x382cf5,
-    "cookie": _0x17cf69,
-    "proxyUrl": _0x23f6d0
+    "salt": _0x235a2d,
+    "cookie": _0x53896d,
+    "proxyUrl": _0x1dc31e
   };
 }
 function loadAccountsFromEnv() {
-  const _0x46569d = Object.keys(process.env).filter(_0x543d63 => /^ksck\d*$/i.test(_0x543d63)).sort((_0x3c9950, _0x203b24) => {
+  const _0x1fdf36 = process.env.ksck;
+  if (!_0x1fdf36) return console.log("未找到 ksck 环境变量"), [];
+  const _0x568b11 = _0x1fdf36.split("&").map(_0x39e2bd => _0x39e2bd.trim()).filter(Boolean);
+  console.log("从ksck环境变量中解析到 " + _0x568b11.length + " 个配置");
+  const _0x4e4840 = [];
+  for (const _0x4de56a of _0x568b11) {
     {
-      const _0x5cf010 = (_0x3c9950.match(/\d+$/) || [0])[0] * 1,
-        _0x55ae90 = (_0x203b24.match(/\d+$/) || [0])[0] * 1;
-      return _0x5cf010 - _0x55ae90;
-    }
-  });
-  if (_0x46569d.length === 0) return console.log("未找到 ksck/ksck1/ksck2... 环境变量"), [];
-  const _0x5e210c = [];
-  for (const _0x15775e of _0x46569d) {
-    {
-      const _0x4c1e10 = (process.env[_0x15775e] || "").trim();
-      if (!_0x4c1e10) continue;
-      const _0x3c78d9 = _0x4c1e10.split("\n").map(_0x52b481 => _0x52b481.trim()).filter(Boolean);
-      for (const _0x3da381 of _0x3c78d9) {
-        {
-          const _0x3c72ac = parseAccountConfig(_0x3da381);
-          _0x3c72ac ? _0x5e210c.push(_0x3c72ac) : console.log("账号格式错误（" + _0x15775e + "）：" + _0x3da381);
-        }
-      }
+      const _0x4e75c8 = parseAccountConfig(_0x4de56a);
+      _0x4e75c8 ? _0x4e4840.push(_0x4e75c8) : console.log("账号格式错误：" + _0x4de56a);
     }
   }
-  _0x5e210c.forEach((_0x111f1c, _0x4fce07) => {
-    _0x111f1c.index = _0x4fce07 + 1;
+  _0x4e4840.forEach((_0x112b77, _0x4b16c1) => {
+    _0x112b77.index = _0x4b16c1 + 1;
   });
-  return _0x5e210c;
+  return _0x4e4840;
 }
-async function concurrentExecute(_0x63e798, _0xaebd, _0x23b95b) {
-  const _0x2e49bf = new Array(_0x63e798.length);
-  let _0x38a394 = 0;
-  async function _0x2b0c5a() {
+async function concurrentExecute(_0x7a7832, _0x281494, _0x35ce4c) {
+  const _0x5218ac = new Array(_0x7a7832.length);
+  let _0x20b56c = 0;
+  async function _0x3601c7() {
     while (true) {
-      {
-        const _0xaf8512 = _0x38a394++;
-        if (_0xaf8512 >= _0x63e798.length) return;
-        const _0x2df228 = _0x63e798[_0xaf8512];
-        try {
-          _0x2e49bf[_0xaf8512] = await _0x23b95b(_0x2df228, _0xaf8512);
-        } catch (_0x44d2d2) {
-          console.log("并发执行异常（index=" + (_0xaf8512 + 1) + "）：" + _0x44d2d2.message);
-          _0x2e49bf[_0xaf8512] = null;
-        }
+      const _0x17ce58 = _0x20b56c++;
+      if (_0x17ce58 >= _0x7a7832.length) {
+        return;
+      }
+      const _0x292e2e = _0x7a7832[_0x17ce58];
+      try {
+        _0x5218ac[_0x17ce58] = await _0x35ce4c(_0x292e2e, _0x17ce58);
+      } catch (_0x214adc) {
+        console.log("并发执行异常（index=" + (_0x17ce58 + 1) + "）：" + _0x214adc.message);
+        _0x5218ac[_0x17ce58] = null;
       }
     }
   }
-  const _0x535133 = Array.from({
-    "length": Math.min(_0xaebd, _0x63e798.length)
-  }, _0x2b0c5a);
-  await Promise.all(_0x535133);
-  return _0x2e49bf;
+  const _0x1b08b0 = Array.from({
+    "length": Math.min(_0x281494, _0x7a7832.length)
+  }, _0x3601c7);
+  await Promise.all(_0x1b08b0);
+  return _0x5218ac;
 }
-async function processAccount(_0x15be93, _0x227fd1 = 10) {
-  if (_0x15be93.proxyUrl) {
-    {
-      console.log("账号[" + _0x15be93.index + "]" + (_0x15be93.remark ? "（" + _0x15be93.remark + "）" : "") + " " + "🔌" + " 测试代理连接中...");
-      const _0x51886b = await testProxyConnectivity(_0x15be93.proxyUrl, "账号[" + _0x15be93.index + "]");
-      console.log("  - " + (_0x51886b.ok ? "✅ 代理验证通过，IP: " + _0x51886b.ip : "❌ 代理验证失败") + ": " + _0x51886b.msg);
-      _0x51886b.ok && _0x51886b.ip && _0x51886b.ip !== "localhost" && (usedProxies.has(_0x51886b.ip) && (console.log("\n⚠️ 存在相同代理IP（" + _0x51886b.ip + "），请立即检查！"), process.exit(1)), usedProxies.add(_0x51886b.ip));
+async function processAccount(_0x466d00, _0xf552c7 = 10) {
+  if (_0x466d00.proxyUrl) {
+    console.log("账号[" + _0x466d00.index + "]" + (_0x466d00.remark ? "（" + _0x466d00.remark + "）" : "") + " 🔌 测试代理连接中...");
+    const _0x6848e1 = await testProxyConnectivity(_0x466d00.proxyUrl, "账号[" + _0x466d00.index + "]");
+    console.log("  - " + (_0x6848e1.ok ? "✅ 代理验证通过，IP: " + _0x6848e1.ip : "❌ 代理验证失败") + ": " + _0x6848e1.msg);
+    if (_0x6848e1.ok && _0x6848e1.ip && _0x6848e1.ip !== "localhost") {
+      usedProxies.has(_0x6848e1.ip) && (console.log("\n⚠️ 存在相同代理IP（" + _0x6848e1.ip + "），请立即检查！"), process.exit(1));
+      usedProxies.add(_0x6848e1.ip);
     }
-  } else console.log("账号[" + _0x15be93.index + "] 未配置代理，走直连");
-  console.log("账号[" + _0x15be93.index + "]" + (_0x15be93.remark ? "（" + _0x15be93.remark + "）" : "") + " " + "🔍" + " 获取账号信息中...");
-  let _0x72dfbc = await getAccountBasicInfo(_0x15be93.cookie, _0x15be93.proxyUrl, _0x15be93.index),
-    _0x1ddb9e = _0x72dfbc?.["nickname"] || "账号" + _0x15be93.index;
-  if (_0x72dfbc) {
-    const _0x4ce9d0 = _0x72dfbc.totalCoin != null ? _0x72dfbc.totalCoin : "未知",
-      _0x46148a = _0x72dfbc.allCash != null ? _0x72dfbc.allCash : "未知";
-    console.log("账号[" + _0x1ddb9e + "] " + "✅" + " 登录成功，" + "💰" + " 当前金币: " + _0x4ce9d0 + "，" + "💸" + " 当前余额: " + _0x46148a);
-  } else console.log("账号[" + _0x1ddb9e + "] " + "❌" + " 基本信息获取失败，继续执行");
-  const _0x4454cb = new KuaishouAdTask({
-    ..._0x15be93,
-    "nickname": _0x1ddb9e
+  } else console.log("账号[" + _0x466d00.index + "] 未配置代理，走直连");
+  console.log("账号[" + _0x466d00.index + "]" + (_0x466d00.remark ? "（" + _0x466d00.remark + "）" : "") + " 🔍 获取账号信息中...");
+  let _0x2a6f86 = await getAccountBasicInfo(_0x466d00.cookie, _0x466d00.proxyUrl, _0x466d00.index),
+    _0x5285e3 = _0x2a6f86?.["nickname"] || "账号" + _0x466d00.index;
+  if (_0x2a6f86) {
+    const _0x1c58ec = _0x2a6f86.totalCoin != null ? _0x2a6f86.totalCoin : "未知",
+      _0x57d833 = _0x2a6f86.allCash != null ? _0x2a6f86.allCash : "未知";
+    console.log("账号[" + _0x5285e3 + "] ✅ 登录成功，💰 当前金币: " + _0x1c58ec + "，💸 当前余额: " + _0x57d833);
+  } else console.log("账号[" + _0x5285e3 + "] ❌ 基本信息获取失败，继续执行");
+  const _0x1060a0 = new KuaishouAdTask({
+    ..._0x466d00,
+    "nickname": _0x5285e3
   });
-  await _0x4454cb.checkCoinLimit();
-  if (_0x4454cb.coinExceeded) {
-    {
-      console.log("账号[" + _0x4454cb.nickname + "] 初始金币已超过阈值，不执行任务");
-      const _0x1d8c6b = await getAccountBasicInfo(_0x15be93.cookie, _0x15be93.proxyUrl, _0x15be93.index),
-        _0x22a450 = _0x72dfbc?.["totalCoin"] || 0,
-        _0x2ec064 = _0x1d8c6b?.["totalCoin"] || 0,
-        _0x3d45fa = _0x2ec064 - _0x22a450,
-        _0x394b26 = _0x72dfbc?.["allCash"] || 0,
-        _0x211fca = _0x1d8c6b?.["allCash"] || 0,
-        _0x498e81 = _0x211fca - _0x394b26;
-      return {
-        "index": _0x15be93.index,
-        "nickname": _0x1ddb9e,
-        "initialCoin": _0x22a450,
-        "finalCoin": _0x2ec064,
-        "coinChange": _0x3d45fa,
-        "initialCash": _0x394b26,
-        "finalCash": _0x211fca,
-        "cashChange": _0x498e81,
-        "stats": _0x4454cb.getTaskStats(),
-        "coinLimitExceeded": true
-      };
+  await _0x1060a0.checkCoinLimit();
+  if (_0x1060a0.coinExceeded) {
+    console.log("账号[" + _0x1060a0.nickname + "] 初始金币已超过阈值，不执行任务");
+    const _0x1fbd29 = await getAccountBasicInfo(_0x466d00.cookie, _0x466d00.proxyUrl, _0x466d00.index),
+      _0x41ad78 = _0x2a6f86?.["totalCoin"] || 0,
+      _0x23bd62 = _0x1fbd29?.["totalCoin"] || 0,
+      _0x429e69 = _0x23bd62 - _0x41ad78,
+      _0x6857a1 = _0x2a6f86?.["allCash"] || 0,
+      _0x579c5b = _0x1fbd29?.["allCash"] || 0,
+      _0x5b6afc = _0x579c5b - _0x6857a1;
+    return {
+      "index": _0x466d00.index,
+      "nickname": _0x5285e3,
+      "initialCoin": _0x41ad78,
+      "finalCoin": _0x23bd62,
+      "coinChange": _0x429e69,
+      "initialCash": _0x6857a1,
+      "finalCash": _0x579c5b,
+      "cashChange": _0x5b6afc,
+      "stats": _0x1060a0.getTaskStats(),
+      "coinLimitExceeded": true
+    };
+  }
+  for (let _0x3e5eb7 = 0; _0x3e5eb7 < _0xf552c7; _0x3e5eb7++) {
+    const _0x5204e4 = Math.floor(Math.random() * 8000) + 8000;
+    console.log("账号[" + _0x1060a0.nickname + "] ⌛ 第" + (_0x3e5eb7 + 1) + "轮，先随机等待 " + Math.round(_0x5204e4 / 1000) + " 秒");
+    await new Promise(_0x290af9 => setTimeout(_0x290af9, _0x5204e4));
+    console.log("账号[" + _0x1060a0.nickname + "] 🚀 开始第" + (_0x3e5eb7 + 1) + "轮任务");
+    const _0x47f9eb = await _0x1060a0.executeAllTasksByPriority();
+    Object.values(_0x47f9eb).some(Boolean) ? console.log("账号[" + _0x1060a0.nickname + "] ✅ 第" + (_0x3e5eb7 + 1) + "轮执行完成") : console.log("账号[" + _0x1060a0.nickname + "] ⚠️ 第" + (_0x3e5eb7 + 1) + "轮没有成功任务");
+    if (_0x1060a0.stopAllTasks) {
+      console.log("账号[" + _0x1060a0.nickname + "] 🏁 达到停止条件，终止后续轮次");
+      break;
+    }
+    if (_0x3e5eb7 < _0xf552c7 - 1) {
+      const _0x15522d = Math.floor(Math.random() * 10000) + 10000;
+      console.log("账号[" + _0x1060a0.nickname + "] ⌛ 等待 " + Math.round(_0x15522d / 1000) + " 秒进入下一轮");
+      await new Promise(_0x9bdc36 => setTimeout(_0x9bdc36, _0x15522d));
     }
   }
-  for (let _0x18fc84 = 0; _0x18fc84 < _0x227fd1; _0x18fc84++) {
-    {
-      const _0x18614e = Math.floor(Math.random() * 8000) + 8000;
-      console.log("账号[" + _0x4454cb.nickname + "] " + "⌛" + " 第" + (_0x18fc84 + 1) + "轮，先随机等待 " + Math.round(_0x18614e / 1000) + " 秒");
-      await new Promise(_0x52569a => setTimeout(_0x52569a, _0x18614e));
-      console.log("账号[" + _0x4454cb.nickname + "] " + "🚀" + " 开始第" + (_0x18fc84 + 1) + "轮任务");
-      const _0x38de54 = await _0x4454cb.executeAllTasksByPriority();
-      if (Object.values(_0x38de54).some(Boolean)) {
-        console.log("账号[" + _0x4454cb.nickname + "] " + "✅" + " 第" + (_0x18fc84 + 1) + "轮执行完成");
-      } else console.log("账号[" + _0x4454cb.nickname + "] " + "⚠️" + " 第" + (_0x18fc84 + 1) + "轮没有成功任务");
-      if (_0x4454cb.stopAllTasks) {
-        console.log("账号[" + _0x4454cb.nickname + "] " + "🏁" + " 达到停止条件，终止后续轮次");
-        break;
-      }
-      if (_0x18fc84 < _0x227fd1 - 1) {
-        const _0x417b3d = Math.floor(Math.random() * 10000) + 10000;
-        console.log("账号[" + _0x4454cb.nickname + "] " + "⌛" + " 等待 " + Math.round(_0x417b3d / 1000) + " 秒进入下一轮");
-        await new Promise(_0xd53ea3 => setTimeout(_0xd53ea3, _0x417b3d));
-      }
-    }
-  }
-  const _0x3ecb72 = await getAccountBasicInfo(_0x15be93.cookie, _0x15be93.proxyUrl, _0x15be93.index),
-    _0xdff8b8 = _0x72dfbc?.["totalCoin"] || 0,
-    _0x2521e1 = _0x3ecb72?.["totalCoin"] || 0,
-    _0x123d7b = _0x2521e1 - _0xdff8b8,
-    _0x1d0abb = _0x72dfbc?.["allCash"] || 0,
-    _0x5056be = _0x3ecb72?.["allCash"] || 0,
-    _0x3c48ec = _0x5056be - _0x1d0abb;
-  _0x4454cb.printTaskStats();
+  const _0x58cd74 = await getAccountBasicInfo(_0x466d00.cookie, _0x466d00.proxyUrl, _0x466d00.index),
+    _0x2eb0d5 = _0x2a6f86?.["totalCoin"] || 0,
+    _0x4617e0 = _0x58cd74?.["totalCoin"] || 0,
+    _0x4b68e7 = _0x4617e0 - _0x2eb0d5,
+    _0x31f90f = _0x2a6f86?.["allCash"] || 0,
+    _0x5bf994 = _0x58cd74?.["allCash"] || 0,
+    _0x55bcf5 = _0x5bf994 - _0x31f90f;
+  _0x1060a0.printTaskStats();
   return {
-    "index": _0x15be93.index,
-    "nickname": _0x1ddb9e,
-    "initialCoin": _0xdff8b8,
-    "finalCoin": _0x2521e1,
-    "coinChange": _0x123d7b,
-    "initialCash": _0x1d0abb,
-    "finalCash": _0x5056be,
-    "cashChange": _0x3c48ec,
-    "stats": _0x4454cb.getTaskStats(),
-    "coinLimitExceeded": _0x4454cb.coinExceeded
+    "index": _0x466d00.index,
+    "nickname": _0x5285e3,
+    "initialCoin": _0x2eb0d5,
+    "finalCoin": _0x4617e0,
+    "coinChange": _0x4b68e7,
+    "initialCash": _0x31f90f,
+    "finalCash": _0x5bf994,
+    "cashChange": _0x55bcf5,
+    "stats": _0x1060a0.getTaskStats(),
+    "coinLimitExceeded": _0x1060a0.coinExceeded
   };
 }
-function printAccountsSummary(_0x4f2056) {
-  if (!_0x4f2056.length) {
-    {
-      console.log("\n没有可显示的账号信息。");
-      return;
-    }
+function printAccountsSummary(_0xcaf1f7) {
+  if (!_0xcaf1f7.length) {
+    console.log("\n没有可显示的账号信息。");
+    return;
   }
-  const _0xd5f466 = _0x4f2056.reduce((_0x32df58, _0x4ae152) => {
-      return _0x32df58 + (parseInt(_0x4ae152.initialCoin) || 0);
+  const _0x53288b = _0xcaf1f7.reduce((_0x391170, _0x147b34) => {
+      return _0x391170 + (parseInt(_0x147b34.initialCoin) || 0);
     }, 0),
-    _0x55df9f = _0x4f2056.reduce((_0x34ebc2, _0x2343cd) => {
-      return _0x34ebc2 + (parseInt(_0x2343cd.finalCoin) || 0);
+    _0x35b804 = _0xcaf1f7.reduce((_0x47a5ac, _0x2a5eb3) => {
+      return _0x47a5ac + (parseInt(_0x2a5eb3.finalCoin) || 0);
     }, 0),
-    _0x46c9a0 = _0x55df9f - _0xd5f466,
-    _0x3c3708 = _0x4f2056.reduce((_0xcb3de3, _0x5ac5b6) => {
-      return _0xcb3de3 + (parseFloat(_0x5ac5b6.initialCash) || 0);
+    _0x307788 = _0x35b804 - _0x53288b,
+    _0x17386d = _0xcaf1f7.reduce((_0x4f3a91, _0x50fc4c) => {
+      return _0x4f3a91 + (parseFloat(_0x50fc4c.initialCash) || 0);
     }, 0),
-    _0x188dfb = _0x4f2056.reduce((_0x306ca8, _0x2e6038) => {
-      return _0x306ca8 + (parseFloat(_0x2e6038.finalCash) || 0);
+    _0x34fdf1 = _0xcaf1f7.reduce((_0x24a85c, _0x59c7ff) => {
+      return _0x24a85c + (parseFloat(_0x59c7ff.finalCash) || 0);
     }, 0),
-    _0x1d24ea = _0x188dfb - _0x3c3708;
-  let _0x24c3a8 = 0,
-    _0x3aaf6d = 0,
-    _0x3b7f11 = 0;
-  _0x4f2056.forEach(_0x27b587 => {
-    _0x27b587.stats && Object.values(_0x27b587.stats).forEach(_0x50cfa1 => {
-      _0x24c3a8 += _0x50cfa1.success + _0x50cfa1.failed;
-      _0x3aaf6d += _0x50cfa1.success;
-      _0x3b7f11 += _0x50cfa1.totalReward;
-    });
+    _0x5c24cf = _0x34fdf1 - _0x17386d;
+  let _0x4c94b3 = 0,
+    _0x1108e8 = 0,
+    _0x47c337 = 0;
+  _0xcaf1f7.forEach(_0x3d674d => {
+    if (_0x3d674d.stats) {
+      Object.values(_0x3d674d.stats).forEach(_0x30cca8 => {
+        _0x4c94b3 += _0x30cca8.success + _0x30cca8.failed;
+        _0x1108e8 += _0x30cca8.success;
+        _0x47c337 += _0x30cca8.totalReward;
+      });
+    }
   });
-  const _0x48a9b3 = _0x24c3a8 > 0 ? (_0x3aaf6d / _0x24c3a8 * 100).toFixed(1) : "0.0",
-    _0x2528c7 = _0x4f2056.filter(_0xca76a9 => _0xca76a9.coinLimitExceeded).length;
+  const _0x5e221f = _0x4c94b3 > 0 ? (_0x1108e8 / _0x4c94b3 * 100).toFixed(1) : "0.0",
+    _0x38d6f6 = _0xcaf1f7.filter(_0x9e55da => _0x9e55da.coinLimitExceeded).length;
   console.log("\n\n" + "=".repeat(80));
   console.log("|" + centerAlign("      快手养号任务执行结果汇总表      ", 78) + "|");
   console.log("=".repeat(80));
-  console.log("|" + ("总账号数: " + _0x4f2056.length).padEnd(22) + ("超过金币阈值账号: " + _0x2528c7).padEnd(22) + ("总任务数: " + _0x24c3a8).padEnd(22) + ("任务成功率: " + _0x48a9b3 + "%").padEnd(10) + "|");
-  console.log("|" + ("总金币变化: " + _0x46c9a0).padEnd(26) + ("总金币奖励: " + _0x3b7f11).padEnd(26) + ("总余额变化: " + _0x1d24ea.toFixed(2)).padEnd(24) + "|");
+  console.log("|" + ("总账号数: " + _0xcaf1f7.length).padEnd(22) + ("超过金币阈值账号: " + _0x38d6f6).padEnd(22) + ("总任务数: " + _0x4c94b3).padEnd(22) + ("任务成功率: " + _0x5e221f + "%").padEnd(10) + "|");
+  console.log("|" + ("总金币变化: " + _0x307788).padEnd(26) + ("总金币奖励: " + _0x47c337).padEnd(26) + ("总余额变化: " + _0x5c24cf.toFixed(2)).padEnd(24) + "|");
   console.log("-".repeat(80));
-  const _0x30aaac = ["序号", "账号昵称", "初始金币", "最终金币", "金币变化", "初始余额", "最终余额", "余额变化"],
-    _0x4a64ed = [6, 16, 12, 12, 12, 12, 12, 12];
-  let _0x2c53d1 = "|";
-  _0x30aaac.forEach((_0x44caa0, _0x166166) => {
-    _0x2c53d1 += centerAlign(_0x44caa0, _0x4a64ed[_0x166166]) + "|";
+  const _0x5d961b = ["序号", "账号昵称", "初始金币", "最终金币", "金币变化", "初始余额", "最终余额", "余额变化"],
+    _0x597823 = [6, 16, 12, 12, 12, 12, 12, 12];
+  let _0x5acbc8 = "|";
+  _0x5d961b.forEach((_0x1a1d11, _0x4c4e47) => {
+    _0x5acbc8 += centerAlign(_0x1a1d11, _0x597823[_0x4c4e47]) + "|";
   });
-  console.log(_0x2c53d1);
-  let _0x4cf74c = "|";
-  _0x4a64ed.forEach(_0x178146 => {
-    _0x4cf74c += "-".repeat(_0x178146) + "|";
+  console.log(_0x5acbc8);
+  let _0x1a8ba4 = "|";
+  _0x597823.forEach(_0xb1264e => {
+    _0x1a8ba4 += "-".repeat(_0xb1264e) + "|";
   });
-  console.log(_0x4cf74c);
-  _0x4f2056.forEach(_0x3a0110 => {
-    {
-      let _0x5ac12e = "|";
-      _0x5ac12e += centerAlign(_0x3a0110.index, _0x4a64ed[0]) + "|";
-      const _0x475ec6 = (_0x3a0110.nickname || "-") + (_0x3a0110.coinLimitExceeded ? " ⚠️" : "");
-      _0x5ac12e += centerAlign(_0x475ec6.substring(0, _0x4a64ed[1] - 2), _0x4a64ed[1]) + "|";
-      _0x5ac12e += centerAlign(_0x3a0110.initialCoin, _0x4a64ed[2]) + "|";
-      _0x5ac12e += centerAlign(_0x3a0110.finalCoin, _0x4a64ed[3]) + "|";
-      const _0x3f678a = _0x3a0110.coinChange >= 0 ? "+" + _0x3a0110.coinChange : _0x3a0110.coinChange;
-      _0x5ac12e += centerAlign(_0x3f678a, _0x4a64ed[4]) + "|";
-      _0x5ac12e += centerAlign(_0x3a0110.initialCash, _0x4a64ed[5]) + "|";
-      _0x5ac12e += centerAlign(_0x3a0110.finalCash, _0x4a64ed[6]) + "|";
-      const _0x593534 = _0x3a0110.cashChange >= 0 ? "+" + _0x3a0110.cashChange.toFixed(2) : _0x3a0110.cashChange.toFixed(2);
-      _0x5ac12e += centerAlign(_0x593534, _0x4a64ed[7]) + "|";
-      console.log(_0x5ac12e);
-    }
+  console.log(_0x1a8ba4);
+  _0xcaf1f7.forEach(_0x532af4 => {
+    let _0x219a38 = "|";
+    _0x219a38 += centerAlign(_0x532af4.index, _0x597823[0]) + "|";
+    const _0x196d9a = (_0x532af4.nickname || "-") + (_0x532af4.coinLimitExceeded ? " ⚠️" : "");
+    _0x219a38 += centerAlign(_0x196d9a.substring(0, _0x597823[1] - 2), _0x597823[1]) + "|";
+    _0x219a38 += centerAlign(_0x532af4.initialCoin, _0x597823[2]) + "|";
+    _0x219a38 += centerAlign(_0x532af4.finalCoin, _0x597823[3]) + "|";
+    const _0x39a041 = _0x532af4.coinChange >= 0 ? "+" + _0x532af4.coinChange : _0x532af4.coinChange;
+    _0x219a38 += centerAlign(_0x39a041, _0x597823[4]) + "|";
+    _0x219a38 += centerAlign(_0x532af4.initialCash, _0x597823[5]) + "|";
+    _0x219a38 += centerAlign(_0x532af4.finalCash, _0x597823[6]) + "|";
+    const _0x463473 = _0x532af4.cashChange >= 0 ? "+" + _0x532af4.cashChange.toFixed(2) : _0x532af4.cashChange.toFixed(2);
+    _0x219a38 += centerAlign(_0x463473, _0x597823[7]) + "|";
+    console.log(_0x219a38);
   });
   console.log("=".repeat(80));
   console.log("|" + centerAlign("      任务执行完成，请查看详细结果      ", 78) + "|");
   console.log("=".repeat(80));
 }
 (async () => {
-  const _0x46d793 = loadAccountsFromEnv();
-  console.log("共找到 " + _0x46d793.length + " 个有效账号");
-  !_0x46d793.length && process.exit(1);
-  const _0xe3dfe4 = parseInt(process.env.MAX_CONCURRENCY || process.env.CONCURRENCY || "888", 10) || 888,
-    _0x39d5bc = parseInt(process.env.ROUNDS || "35", 10) || 35;
-  console.log("\n防黑并发：" + _0xe3dfe4 + "    防黑轮数：" + _0x39d5bc + "\n");
-  const _0x54ec06 = [];
-  await concurrentExecute(_0x46d793, _0xe3dfe4, async _0x1d4843 => {
-    console.log("\n—— 🚀 开始账号[" + _0x1d4843.index + "]" + (_0x1d4843.remark ? "（" + _0x1d4843.remark + "）" : "") + " ——");
+  const _0x1684c0 = loadAccountsFromEnv();
+  console.log("共找到 " + _0x1684c0.length + " 个有效账号");
+  !_0x1684c0.length && process.exit(1);
+  const _0x402b77 = parseInt(process.env.MAX_CONCURRENCY || process.env.CONCURRENCY || "888", 10) || 888,
+    _0x447d3b = parseInt(process.env.ROUNDS || "35", 10) || 35;
+  console.log("\n防黑并发：" + _0x402b77 + "    防黑轮数：" + _0x447d3b + "\n");
+  const _0x443705 = [];
+  await concurrentExecute(_0x1684c0, _0x402b77, async _0x376f4d => {
+    console.log("\n—— 🚀 开始账号[" + _0x376f4d.index + "]" + (_0x376f4d.remark ? "（" + _0x376f4d.remark + "）" : "") + " ——");
     try {
-      {
-        const _0x41216a = await processAccount(_0x1d4843, _0x39d5bc);
-        _0x54ec06.push({
-          "index": _0x1d4843.index,
-          "remark": _0x1d4843.remark || "无备注",
-          "nickname": _0x41216a?.["nickname"] || "未知账号",
-          "initialCoin": _0x41216a?.["initialCoin"] || 0,
-          "finalCoin": _0x41216a?.["finalCoin"] || 0,
-          "coinChange": _0x41216a?.["coinChange"] || 0,
-          "initialCash": _0x41216a?.["initialCash"] || 0,
-          "finalCash": _0x41216a?.["finalCash"] || 0,
-          "cashChange": _0x41216a?.["cashChange"] || 0,
-          "stats": _0x41216a?.["stats"] || {},
-          "coinLimitExceeded": _0x41216a?.["coinLimitExceeded"] || false
-        });
-      }
-    } catch (_0x2d56ae) {
-      console.log("账号[" + _0x1d4843.index + "] " + "❌" + " 执行异常：" + _0x2d56ae.message);
-      _0x54ec06.push({
-        "index": _0x1d4843.index,
-        "remark": _0x1d4843.remark || "无备注",
-        "nickname": "未知账号",
+      const _0x20f918 = await processAccount(_0x376f4d, _0x447d3b);
+      _0x443705.push({
+        "index": _0x376f4d.index,
+        "remark": _0x376f4d.remark || "无备注",
+        "nickname": _0x20f918?.["nickname"] || this.nickname,
+        "initialCoin": _0x20f918?.["initialCoin"] || 0,
+        "finalCoin": _0x20f918?.["finalCoin"] || 0,
+        "coinChange": _0x20f918?.["coinChange"] || 0,
+        "initialCash": _0x20f918?.["initialCash"] || 0,
+        "finalCash": _0x20f918?.["finalCash"] || 0,
+        "cashChange": _0x20f918?.["cashChange"] || 0,
+        "stats": _0x20f918?.["stats"] || {},
+        "coinLimitExceeded": _0x20f918?.["coinLimitExceeded"] || false
+      });
+    } catch (_0x1f1d46) {
+      console.log("账号[" + _0x376f4d.index + "] ❌ 执行异常：" + _0x1f1d46.message);
+      _0x443705.push({
+        "index": _0x376f4d.index,
+        "remark": _0x376f4d.remark || "无备注",
+        "nickname": this.nickname,
         "initialCoin": 0,
         "finalCoin": 0,
         "coinChange": 0,
         "initialCash": 0,
         "finalCash": 0,
         "cashChange": 0,
-        "error": _0x2d56ae.message
+        "error": _0x1f1d46.message
       });
     }
   });
-  _0x54ec06.sort((_0x35ed98, _0x32e046) => _0x35ed98.index - _0x32e046.index);
+  _0x443705.sort((_0x15a393, _0x7c10e7) => _0x15a393.index - _0x7c10e7.index);
   console.log("\n全部完成。", "✅");
   console.log("\n---------------------------------------------- 账号信息汇总 ----------------------------------------------");
-  function _0x2cff56(_0x257b49) {
-    let _0x1f60f1 = 0;
-    for (let _0x5d657a = 0; _0x5d657a < _0x257b49.length; _0x5d657a++) {
-      {
-        const _0x2167b5 = _0x257b49.charCodeAt(_0x5d657a);
-        _0x2167b5 >= 19968 && _0x2167b5 <= 40869 || _0x2167b5 >= 126976 && _0x2167b5 <= 128767 ? _0x1f60f1 += 2 : _0x1f60f1 += 1;
-      }
-    }
-    return _0x1f60f1;
-  }
-  function _0x21ace3(_0x340cfa, _0x2ec6e2) {
-    const _0x131cd8 = String(_0x340cfa || ""),
-      _0x4dd3ba = _0x2cff56(_0x131cd8),
-      _0x461008 = _0x2ec6e2 - _0x4dd3ba;
-    if (_0x461008 <= 0) {
-      let _0x1916fb = "",
-        _0x1e25f4 = 0;
-      for (let _0xb41ba6 = 0; _0xb41ba6 < _0x131cd8.length; _0xb41ba6++) {
-        {
-          const _0x589bd9 = _0x2cff56(_0x131cd8[_0xb41ba6]);
-          if (_0x1e25f4 + _0x589bd9 > _0x2ec6e2 - 2) return _0x1916fb + "..";
-          _0x1916fb += _0x131cd8[_0xb41ba6];
-          _0x1e25f4 += _0x589bd9;
-        }
-      }
-      return _0x1916fb;
-    }
-    return _0x131cd8 + " ".repeat(_0x461008);
-  }
-  const _0x14fdce = ["序号", "备注", "账号名", "初始金币", "最终金币", "金币变化", "初始余额", "最终余额", "余额变化"],
-    _0x3a0c3d = [6, 18, 18, 12, 12, 12, 12, 12, 12];
-  let _0x1a488b = "|";
-  for (let _0x2f678c = 0; _0x2f678c < _0x14fdce.length; _0x2f678c++) {
-    _0x1a488b += " " + _0x21ace3(_0x14fdce[_0x2f678c], _0x3a0c3d[_0x2f678c]) + " |";
-  }
-  console.log(_0x1a488b);
-  let _0x196bea = "+";
-  for (let _0x35462e = 0; _0x35462e < _0x3a0c3d.length; _0x35462e++) {
-    _0x196bea += "-".repeat(_0x3a0c3d[_0x35462e] + 2) + "+";
-  }
-  console.log(_0x196bea);
-  _0x54ec06.forEach(_0x4557e5 => {
-    let _0x157108 = "|";
-    if (_0x4557e5.error) {
-      _0x157108 += " " + _0x21ace3(_0x4557e5.index, _0x3a0c3d[0]) + " |";
-      _0x157108 += " " + _0x21ace3(_0x4557e5.remark || "", _0x3a0c3d[1]) + " |";
-      _0x157108 += " " + _0x21ace3("执行异常", _0x3a0c3d[2]) + " |";
-      _0x157108 += " " + _0x21ace3("异常", _0x3a0c3d[3]) + " |";
-      _0x157108 += " " + _0x21ace3("异常", _0x3a0c3d[4]) + " |";
-      _0x157108 += " " + _0x21ace3("异常", _0x3a0c3d[5]) + " |";
-      _0x157108 += " " + _0x21ace3("异常", _0x3a0c3d[6]) + " |";
-      _0x157108 += " " + _0x21ace3("异常", _0x3a0c3d[7]) + " |";
-      _0x157108 += " " + _0x21ace3("异常", _0x3a0c3d[8]) + " |";
-      console.log(_0x157108);
-      const _0x50a93f = _0x4557e5.error.substring(0, 120);
-      let _0x1c7698 = "|";
-      _0x1c7698 += " " + _0x21ace3("", _0x3a0c3d[0]) + " |";
-      _0x1c7698 += " " + _0x21ace3("异常信息: " + _0x50a93f, _0x3a0c3d[1] + _0x3a0c3d[2] + _0x3a0c3d[3] + _0x3a0c3d[4] + _0x3a0c3d[5] + _0x3a0c3d[6] + _0x3a0c3d[7] + _0x3a0c3d[8] + 14) + " |";
-      console.log(_0x1c7698);
-    } else {
-      _0x157108 += " " + _0x21ace3(_0x4557e5.index, _0x3a0c3d[0]) + " |";
-      _0x157108 += " " + _0x21ace3(_0x4557e5.remark || "", _0x3a0c3d[1]) + " |";
-      _0x157108 += " " + _0x21ace3(_0x4557e5.nickname + (_0x4557e5.coinLimitExceeded ? " ⚠️" : ""), _0x3a0c3d[2]) + " |";
-      _0x157108 += " " + _0x21ace3(_0x4557e5.initialCoin.toFixed(2), _0x3a0c3d[3]) + " |";
-      _0x157108 += " " + _0x21ace3(_0x4557e5.finalCoin.toFixed(2), _0x3a0c3d[4]) + " |";
-      const _0x56a4f8 = _0x4557e5.coinChange >= 0 ? "+" + _0x4557e5.coinChange.toFixed(2) : _0x4557e5.coinChange.toFixed(2);
-      _0x157108 += " " + _0x21ace3(_0x56a4f8, _0x3a0c3d[5]) + " |";
-      _0x157108 += " " + _0x21ace3(_0x4557e5.initialCash.toFixed(2), _0x3a0c3d[6]) + " |";
-      _0x157108 += " " + _0x21ace3(_0x4557e5.finalCash.toFixed(2), _0x3a0c3d[7]) + " |";
-      const _0x57ec0b = _0x4557e5.cashChange >= 0 ? "+" + _0x4557e5.cashChange.toFixed(2) : _0x4557e5.cashChange.toFixed(2);
-      _0x157108 += " " + _0x21ace3(_0x57ec0b, _0x3a0c3d[8]) + " |";
-      console.log(_0x157108);
-    }
-  });
-  console.log(_0x196bea);
+  printAccountsSummary(_0x443705);
 })();
